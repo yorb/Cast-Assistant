@@ -2,7 +2,7 @@ function main() {
 	"use strict";
 
 	function checkPage(tabId, changeInfo, tab) {
-		if (tab.url.indexOf('https://soundcloud.com') === 0 || tab.url.indexOf('https://play.spotify.com') === 0) {
+		if (tab.url.indexOf('https://soundcloud.com') === 0 || tab.url.indexOf('https://play.spotify.com') === 0 || tab.url.indexOf('http://www.pandora.com') === 0) {
 			chrome.pageAction.show(tabId);
 		}
 	}

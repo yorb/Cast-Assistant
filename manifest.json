@@ -16,7 +16,8 @@
   "permissions": [
     "tabs",
     "https://soundcloud.com/*",
-    "https://play.spotify.com/*"
+    "https://play.spotify.com/*",
+    "http://www.pandora.com/"
   ],
 
   "page_action": {
@@ -29,7 +30,11 @@
 
   "content_scripts": [
     {
-      "matches": ["https://soundcloud.com/*", "https://play.spotify.com/*"],
+      "matches": [
+        "https://soundcloud.com/*",
+        "https://play.spotify.com/*",
+        "*://*.pandora.com/*"
+      ],
       "css": ["cast_assistant.css"],
       "js": ["jquery-2.0.3.min.js", "cast_assistant.js"],
       "run_at": "document_end"
