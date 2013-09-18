@@ -12,3 +12,4 @@ A Chrome extension to improve primary screen (TV) experience when casting audio 
 
 - [SoundCloud](http://soundcloud.com)
 - [Spotify](http://play.spotify.com) (web player)
+- [Pandora](http://www.pandora.com)

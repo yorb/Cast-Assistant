@@ -30,6 +30,35 @@ $(document).ready(function() {
 		updateOverlay(artist, title);
 	});
 
+	if (window.location.href.indexOf('http://www.pandora.com/') === 0) {
+		// Pandora
+
+		var target = document.querySelector('.pauseButton');
+		var observer = new MutationObserver(function(mutations) {
+			mutations.forEach(function() {
+				if (target.style.display === 'block') {
+					title = $('.playerBarSong').text();
+					artist = $('.playerBarArtist').text();
+				} else {
+					title = '';
+					artist = '';
+				}
+				updateOverlay(artist, title);
+			});
+		});
+		observer.observe(target, { attributes: true });
+
+		var trackTarget = document.querySelector('.playerBarSong');
+		var trackObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function() {
+				title = $('.playerBarSong').text();
+				artist = $('.playerBarArtist').text();
+				updateOverlay(artist, title);
+			});
+		});
+		trackObserver.observe(trackTarget, { childList: true, subtree: true });
+	}
+
 	function toggleOverlay(isActive) {
 		if (isActive) {
 			overlay.removeClass('hidden');
@@ -50,7 +79,7 @@ $(document).ready(function() {
 		chrome.runtime.sendMessage({active: false});
 	});
 
-	chrome.runtime.onMessage.addListener(function(request, sender) {
+	chrome.runtime.onMessage.addListener(function(request) {
 		toggleOverlay(request.active);
 	});
 });
