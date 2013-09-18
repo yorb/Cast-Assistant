@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cast Assistant",
+  "description": "Provides an optional black overlay for SoundCloud and Spotify, for use with the Google Cast extension.",
+  "version": "0.1",
+
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+
+  "background": { "scripts": ["background.js"] },
+
+  "permissions": [
+    "tabs",
+    "https://soundcloud.com/*",
+    "https://play.spotify.com/*"
+  ],
+
+  "page_action": {
+    "default_icon": {
+      "19": "icon-19-deactivated.png",
+      "38": "icon-38-deactivated.png"
+    },
+    "default_title": "Toggle Cast Assistant overlay"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://soundcloud.com/*", "https://play.spotify.com/*"],
+      "css": ["cast_assistant.css"],
+      "js": ["jquery-2.0.3.min.js", "cast_assistant.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
