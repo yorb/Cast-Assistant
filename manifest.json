@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Cast Assistant",
-  "description": "Provides an optional black overlay for SoundCloud and Spotify, for use with the Google Cast extension.",
+  "description": "Provides a black overlay on popular streaming audio sites for use with the Google Cast extension.",
   "version": "0.2",
 
   "icons": {
